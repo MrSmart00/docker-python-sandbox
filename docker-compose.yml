@@ -1,0 +1,9 @@
+version: '3.8'
+services:
+  myapp:
+    build: .
+    container_name: my_container
+    tty: true
+    stdin_open: true
+    volumes:
+      - .:/app

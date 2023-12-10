@@ -1,15 +1,12 @@
 import asyncio
-import time
 
-async def say_after(delay, what):
-    await asyncio.sleep(delay)
-    print(f"{time.strftime('%X')} - {what}")
+import greeting
+import my_network
 
 async def main():
-    print(f"{time.strftime('%X')} - start")
-    c1 = say_after(1, 'hello')
-    c2 = say_after(2, 'world')
-    await asyncio.gather(c1, c2)
-    print(f"{time.strftime('%X')} - finish")
+    loop = asyncio.get_event_loop()
+    task1 = loop.create_task(greeting.say_hallo_world())
+    task2 = loop.create_task(my_network.async_get_request(20))
+    await asyncio.gather(task1, task2)
 
 asyncio.run(main())
