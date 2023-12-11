@@ -3,6 +3,7 @@ import requests
 
 BASE_URL = 'https://pokeapi.co/api/v2/pokemon/?limit=20&offset='
 
+
 async def async_get_request(offset: int) -> dict:
     print(f"async request offset /{offset}")
     url = BASE_URL + str(offset)
