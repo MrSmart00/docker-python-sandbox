@@ -1,7 +1,8 @@
 import asyncio
+
 import requests
 
-BASE_URL = 'https://pokeapi.co/api/v2/pokemon/?limit=20&offset='
+BASE_URL = "https://pokeapi.co/api/v2/pokemon/?limit=20&offset="
 
 
 async def async_get_request(offset: int) -> dict:
@@ -11,5 +12,5 @@ async def async_get_request(offset: int) -> dict:
     res = await loop.run_in_executor(None, requests.get, url)
     json = res.json()
     print(json)
-    print(f"=== async request done ===")
+    print("=== async request done ===")
     return json
